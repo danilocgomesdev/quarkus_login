@@ -60,7 +60,11 @@
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-smallrye-jwt-build</artifactId>
     </dependency>
-
+    <!--logger-->
+    <dependency>
+      <groupId>org.jboss.logmanager</groupId>
+      <artifactId>log4j2-jboss-logmanager</artifactId>
+    </dependency>
     <!-- Hibernate ORM specific dependencies -->
     <dependency>
       <groupId>io.quarkus</groupId>
@@ -97,7 +101,12 @@
       <artifactId>quarkus-undertow</artifactId>
       <version>2.9.0.Final</version>
     </dependency>
-    </dependencies>
+    <dependency>
+      <groupId>io.smallrye</groupId>
+      <artifactId>smallrye-open-api-core</artifactId>
+      <version>2.1.21</version>
+    </dependency>
+  </dependencies>
   <build>
     <plugins>
       <plugin>

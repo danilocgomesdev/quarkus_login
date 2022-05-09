@@ -1,4 +1,4 @@
-package danilocgomes.dev.modulos.usuario;
+package danilocgomes.dev.modulos.usuario.model;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import lombok.AllArgsConstructor;
