@@ -3,6 +3,7 @@ package danilocgomes.dev.modulos.usuario.service;
 import danilocgomes.dev.modulos.usuario.model.Usuario;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.transaction.Transactional;
 import javax.ws.rs.NotFoundException;
 
 @ApplicationScoped
@@ -17,5 +18,11 @@ public class UsuarioServiceImpl implements UsuarioService{
         }else {
             return usuario;
         }
+    }
+
+    @Override
+    @Transactional
+    public void salvar(Usuario usuario){
+        Usuario.persist(usuario);
     }
 }
