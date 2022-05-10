@@ -8,7 +8,6 @@ import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.util.logging.Logger;
 
 @Path("/usuario")
 @Produces(MediaType.APPLICATION_JSON)
@@ -22,18 +21,17 @@ public class UsuarioRest implements UsuarioApi{
     @Path("/{id}")
     @Override
     public Response buscarPorId(@PathParam("id") Long id){
-        return Response.ok(usuarioService.getById(id)).build();
+        Usuario usuario = usuarioService.getById(id);
+        if(usuario != null)
+            return Response.ok(usuario).build();
+        else
+            return Response.status(Response.Status.NOT_FOUND).build();
     }
 
     @POST
     @Override
     public Response salvarNovo(Usuario usuario) {
-        try {
-            usuarioService.salvar(usuario);
-            return Response.status(Response.Status.CREATED).build();
-        } catch (Exception e) {
-            Logger.getLogger("Nao foi possivel salvar!");
-        }
-        return null;
+        usuarioService.salvar(usuario);
+        return Response.status(Response.Status.CREATED).entity(usuario).build();
     }
 }

@@ -6,5 +6,5 @@ public interface UsuarioService {
 
     Usuario getById(Long idUsuario);
 
-    void salvar(Usuario usuario);
+    Usuario salvar(Usuario usuario);
 }
