@@ -9,5 +9,7 @@ public interface UsuarioApi {
 
     Response buscarPorId(Long id);
 
+    Response buscarTodos();
+
     Response salvarNovo(Usuario usuario);
 }
